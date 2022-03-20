@@ -1,0 +1,235 @@
+html,body {
+	padding: 10px 2px 0 2px;
+	margin: 0;
+}
+
+
+.galleryContainer {
+	padding: 10px;
+	width: 100%;
+	max-width: 1000px;
+	height: 500px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	user-select: none;
+	box-shadow: 0 0 3px 2px #1e201e78;
+     
+}
+
+
+
+.galleryContainer .slideShowContainer {
+	position: relative;
+	width: 100%;
+	height: 90%;
+	overflow: hidden;
+	background-color: gainsboro;
+}
+
+.galleryContainer .slideShowContainer .imageHolder {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0;
+}
+
+.galleryContainer .slideShowContainer .imageHolder img {
+	width: 100%;
+	height: 100%;
+}
+
+.galleryContainer .slideShowContainer .captionText {
+	display : none;
+}
+
+.galleryContainer .slideShowContainer .leftArow,.galleryContainer .slideShowContainer .rightArow{
+	position : absolute;
+	background: #00000036;
+	width: 50px;
+	height: 72px;
+	transition: background 0.5s ;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.galleryContainer .slideShowContainer .rightArow {
+	left: auto;
+	right: 0;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.galleryContainer .slideShowContainer .leftArow:hover,.galleryContainer .slideShowContainer .rightArow:hover{
+	background-color: #000000ab;
+	cursor: pointer;
+}
+
+.galleryContainer .slideShowContainer .arow {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: auto;
+	border: 3px solid #fff;
+	border-left: none;
+	border-bottom: none;
+	position: absolute;
+	left:0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
+
+.galleryContainer .slideShowContainer .arowLeft {
+	transform: rotateZ(-135deg);
+}
+
+.galleryContainer .slideShowContainer .arowRight {
+	transform: rotateZ(45deg);
+}
+
+.galleryContainer .slideShowContainer>.captionHolder {
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	z-index: 1;
+	font-size: 20px;
+	font-family: sans-serif;
+	height: 50px;
+	line-height: 50px;
+	background-color: #00000036;
+	text-align: center;
+	color: gainsboro;
+} 
+
+.galleryContainer .slideShowContainer>.captionHolder>.textHolder {
+	margin: 0;
+}
+
+.galleryContainer #dotsContainer {
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+.galleryContainer #dotsContainer .dots {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	margin-left: 10px;
+	background-color: #BBB;
+	cursor: pointer;
+	transition: background-color 0.5s;
+}
+
+.galleryContainer #dotsContainer .dots:hover,.galleryContainer #dotsContainer .active{
+	background-color: #717171;
+}
+
+.galleryContainer #dotsContainer .dots:first-child {
+	margin-left: 0;
+}
+
+.galleryContainer .moveLeftCurrentSlide {
+	animation-name: moveLeftCurrent;
+	animation-duration: 1s;
+	animation-timing-function: initial;
+	animation-fill-mode: forwards;
+}
+
+@keyframes moveLeftCurrent {
+	from {
+		margin-left: 0;
+		opacity: 1;
+	} to {
+		margin-left: -100%;
+		opacity: 1;
+	}
+}
+
+.galleryContainer .moveLeftNextSlide {
+	animation-name: moveLeftNext;
+	animation-duration: 1s;
+	animation-timing-function: initial;
+	animation-fill-mode: forwards;
+}
+
+@keyframes moveLeftNext {
+	from {
+		margin-left: 100%;
+		opacity: 1;
+	} to {
+		margin-left: 0;
+		opacity: 1;
+	}
+}
+
+.galleryContainer .moveRightCurrentSlide {
+	animation-name: moveRightCurrent;
+	animation-duration: 1s;
+	animation-timing-function: initial;
+	animation-fill-mode: forwards;
+}
+
+@keyframes moveRightCurrent {
+	from {
+		margin-left: 0;
+		opacity: 1;
+	} to {
+		margin-left: 100%;
+		opacity: 1;
+	}
+}
+
+.galleryContainer .moveRightNextSlide {
+	animation-name: moveRightNext;
+	animation-duration: 1s;
+	animation-timing-function: initial;
+	animation-fill-mode: forwards;
+}
+
+@keyframes moveRightNext {
+	from {
+		margin-left: -100%;
+		opacity: 1;
+	} to {
+		margin-left: 0;
+		opacity: 1;
+	}
+}
+
+.moveCaptionFromtop {
+	animation-name: moveCaptionFromtop;
+	animation-duration: 0.7s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes moveCaptionFromtop {
+	from {
+		opacity: 0;
+		margin-left: -100px;}
+	to {
+		opacity: 1;
+		margin-left: 0;
+	}
+}
+
+.moveCaptionFromBottom {
+	animation-name: moveCaptionFromBottom;
+	animation-duration: 0.7s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes moveCaptionFromBottom {
+	from {opacity: 0;margin-left: 100px;}
+	to {opacity: 1;margin-left: 0;}
+}
+
