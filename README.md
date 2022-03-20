@@ -1,2 +1,2 @@
 # SliderImages
-Image Slider Using HTML, CSS, and javaScript.
+Image Slider Using HTML, CSS, and javaScript..
